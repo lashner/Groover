@@ -1,0 +1,39 @@
+<template name="search">
+    {{#if sendingMessage}}
+        {{> sendMessage messageInfo=messageTo}}
+    {{/if}}
+    <div>
+    	<div class="search-bar">
+      		<input type="text" name="filter-input" class="question" id="filter-input" required autocomplete="off" />
+      		<label for="filter-input"><span>Filter by instrument or genre...</span></label>
+    	</div>
+        <div class="filters">
+            {{#each filter in filters}}
+                <span class="mdl-chip mdl-chip--deletable" data="{{filter}}">
+                    <span class="mdl-chip__text">{{filter}}</span>
+                    <button type="button" class="mdl-chip__action"><i class="material-icons">cancel</i></button>
+                </span>
+            {{/each}}
+        </div>
+    	{{> accountList searchResults=searchResults}}
+    </div>
+</template>
+
+<template name="sendMessage">
+    <div class="send-message-modal">
+        <div class="input-container">
+            <center>
+                <h3>Send message to {{messageInfo.name}}</h3>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="message-input mdl-textfield__input" type="text" id="sample3">
+                    <label class="mdl-textfield__label" for="sample3">Message...</label>
+                </div>
+                <br />
+                <button class="send-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                    Send
+                </button>
+                <a href="" id="cancel-btn">Cancel</a>
+            </center>
+        </div>
+    </div>
+</template>

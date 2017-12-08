@@ -1,0 +1,147 @@
+* {
+  box-sizing: border-box; }
+
+h1, h2, h3, h4, h5, h6,
+ul, li {
+  padding: 0;
+  margin: 0; }
+
+.content-grid {
+  max-width: 1024px; }
+
+.login-button {
+  margin: 200px auto !important;
+  display: inherit !important; }
+
+.login-button-container {
+  margin: 0 auto;
+  width: 450px; }
+
+.messaging {
+  padding: 10px;
+  height: 600px; }
+
+.page-content .messaging .conversations, .mdl-list {
+  padding: 0; }
+
+.conversations {
+  overflow: auto;
+  background-color: #ededed;
+  -webkit-box-shadow: 0px 10px 20px -10px #888;
+  box-shadow: 0px 10px 20px -10px #888; }
+
+.conversation-card {
+  border-bottom: 1px solid #d6d6d6; }
+  .conversation-card:hover {
+    background-color: #d6d6d6;
+    cursor: pointer; }
+
+.selected {
+  background-color: #d6d6d6; }
+
+.conversation {
+  position: relative;
+  background-color: #ededed;
+  -webkit-box-shadow: 0px 10px 20px -10px #888;
+  box-shadow: 0px 10px 20px -10px #888; }
+
+.conversation-header {
+  height: 50px;
+  text-align: center;
+  font-size: 36px; }
+  .conversation-header h3 {
+    margin: 0; }
+
+.messages-placeholder {
+  text-align: center;
+  font-size: 36px;
+  margin-top: 10px; }
+
+.messages-wrapper {
+  overflow: auto;
+  padding: 10px 10px 30px 10px;
+  height: 489px; }
+
+.sent {
+  text-align: right; }
+  .sent .mdl-chip {
+    background-color: #2196F3;
+    color: white; }
+
+.received {
+  text-align: left; }
+
+.chat-field-container {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  padding: 0 10px; }
+
+.chat-field {
+  width: 100%; }
+
+.profile-page {
+  max-width: 1000px;
+  margin: 0 auto; }
+  .profile-page .image-container {
+    width: 100%;
+    padding-top: 100%;
+    position: relative; }
+    .profile-page .image-container .profile-page-image {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      text-align: center;
+      position: absolute;
+      border-radius: 50%; }
+  .profile-page .visible-switch {
+    width: auto; }
+  .profile-page .mdl-cell {
+    background-color: #ededed;
+    padding: 20px;
+    -webkit-box-shadow: 0px 10px 20px -10px #888;
+    box-shadow: 0px 10px 20px -10px #888; }
+  .profile-page .btn-container {
+    position: absolute;
+    bottom: 20px; }
+  .profile-page .bio-card {
+    position: relative;
+    min-height: 300px; }
+  .profile-page .info-container {
+    margin-top: 20px; }
+
+.account-list {
+  width: 850px;
+  margin: 0 auto; }
+  .account-list li {
+    background-color: #ededed; }
+
+.profile-link {
+  text-decoration: none; }
+
+.account-card {
+  margin: 10px auto;
+  -webkit-box-shadow: 0px 10px 20px -10px #888;
+  box-shadow: 0px 10px 20px -10px #888;
+  overflow: hidden;
+  width: 800px;
+  transition: width ease-out 300ms, height ease-out 300ms, padding ease-out 300ms;
+  cursor: pointer; }
+  .account-card:hover {
+    transition: width ease-out 300ms, height ease-out 300ms, padding ease-out 300ms;
+    width: 830px;
+    height: 100px;
+    padding: 22px 31px; }
+
+.instruments {
+  float: right;
+  font-size: 14px; }
+
+.profile-image {
+  border-radius: 50%;
+  margin-right: 16px;
+  display: inline-block;
+  float: left; }
+
+/*# sourceMappingURL=main.css.map */

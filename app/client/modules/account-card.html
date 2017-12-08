@@ -1,0 +1,36 @@
+<template name="accountList">
+    <!-- 
+        name: Name to Display
+        profileImageUrl: (optional) Location of profile image, defaults to sillouhette
+        bio: User's biography, may need to truncate it (I counted it, should be 220 characters).
+    -->
+    <ul class="mdl-list account-list">
+        {{# each searchResults}}
+            {{> accountCard name=name bio=bio profileImageUrl=profileImageUrl id=_id instruments=instruments}}
+        {{/each}}
+    </ul>
+</template>
+
+<template name="accountCard">
+    <a href={{profileUrl(id)}} class="profile-link">
+        <div>
+          <li class="mdl-list__item mdl-list__item--three-line account-card">
+            <span class="mdl-list__item-primary-content">
+                {{#if profileImageUrl}}
+                    <img class="profile-image" src={{profileImageUrl}} height="40" width="40" alt="Profile Image"/>
+                {{else}}
+                    <i class="material-icons mdl-list__item-avatar">person</i>
+                {{/if}}
+                <span>{{name}}</span>
+                <span class="instruments">{{#each instrument in instruments}}{{instrument}}  {{/each}}</span>
+                <span class="mdl-list__item-text-body">{{bio}}</span>
+            </span>
+            <span class="mdl-list__item-secondary-content">
+            <button id={{id}} class="message-btn mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored mdl-js-ripple-effect">
+              <i class="material-icons">question_answer</i>
+            </button>
+              </span>
+            </li>
+        </div>
+    </a>
+</template>

@@ -1,0 +1,63 @@
+<template name="messaging">
+  <div class="messaging content-grid mdl-grid">
+      <ul class="conversations mdl-cell mdl-cell--4-col demo-list-two mdl-list">
+        {{#each user in conversations}}
+          {{> conversation_card user=user selected=(userIsRecipient user._id)}}
+        {{/each}}
+      </ul>
+
+      <div class="conversation mdl-cell mdl-cell--8-col">
+        {{#if recipientSelected}}
+          <div class="conversation-header">
+            <h3>Chatting with {{recipient.name}}</h3>
+          </div>
+          <div class="messages-wrapper">
+            <ul>
+              {{#each message in messages}}
+                  {{> message_card message=message}}
+              {{/each}}
+            </ul>
+          </div>
+          <div class="chat-field-container">
+            <form>  
+              <div class="chat-field mdl-textfield mdl-js-textfield">
+                <input id="chat-field" class="mdl-textfield__input" type="text">
+                <label class="mdl-textfield__label" for="chat-field">Enter a Message</label>
+              </div>
+            </form>
+          </div>
+        {{else}}
+          <div class="messages-placeholder">
+            Select user to chat with.
+          </div>
+        {{/if}}
+      </div>
+
+  </div>
+</template>
+
+<template name="conversation_card">
+  <li class="conversation-card mdl-list__item mdl-list__item--two-line {{#if selected}} selected {{/if}}" id="{{user._id}}">
+    <span class="mdl-list__item-primary-content">
+      {{#if user.profileImageUrl}}
+        <img class="profile-image" src={{user.profileImageUrl}} height="40" width="40" alt="Profile Image"/>
+      {{else}}
+        <i class="material-icons mdl-list__item-avatar">person</i>
+      {{/if}}
+      <!-- <span>{{sender}}</span> -->
+      <span class="mdl-list__item-sub-title">{{user.name}}</span>
+    </span>
+    <!-- <span class="mdl-list__item-secondary-content">
+      <span class="mdl-list__item-secondary-info">Actor</span>
+      <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
+    </span> -->
+  </li>
+</template>
+
+<template name="message_card">
+  <div class="{{#if message.sentByUser}}sent{{else}}received{{/if}}">
+    <span class="mdl-chip">
+      <span class="mdl-chip__text">{{message.message}}</span>
+    </span>
+  </div>
+</template>

@@ -1,0 +1,90 @@
+<template name="profile">
+    <div class="profile-page">
+        <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--3-col">
+                <center>
+                    <div class="image-container">
+                        <img class="profile-page-image" src={{profileInfo.profileImageUrl}} height="100%" width="100%">
+                    </div>
+                    {{#if editMode}}
+                        <div class="mdl-textfield mdl-js-textfield">
+                          <input id="name-input" class="mdl-textfield__input" type="text" value={{profileInfo.name}}>
+                          <label class="mdl-textfield__label" for="name-input">Name</label>
+                        </div>
+                        Make My Profile Visible
+                        <label class="visible-switch mdl-switch mdl-js-switch mdl-js-ripple-effect" for="visibility-toggle">
+                            <input type="checkbox" id="visibility-toggle" class="mdl-switch__input" checked={{profileInfo.visible}}>
+                            <span class="mdl-switch__label"></span>
+                        </label>
+                    {{else}}
+                        <h3>{{profileInfo.name}}</h3>
+                    {{/if}}
+                </center>
+            </div>
+            <div class="mdl-cell mdl-cell--4-col bio-card">
+                <div class="info-container ">
+                {{#if editMode}}
+                    <h3>Bio</h3>
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <textarea id="bio-input" class="mdl-textfield__input" type="text" rows= "3" >{{profileInfo.bio}}</textarea>
+                        <label class="mdl-textfield__label" for="sample5">Update your bio...</label>
+                    </div>
+                    
+                    <div class="info-container btn-container">
+                        <button id="save-btn" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                          Save
+                        </button>
+                        <a href="" id="cancel-btn">Cancel</a>
+                    </div>
+                {{else}}
+                    <h3>Bio</h3>
+                    {{profileInfo.bio}}
+                    {{#if isOwnProfile}}
+                        <div class="info-container btn-container">
+                            <button id="edit-btn" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                              Edit
+                            </button>
+                        </div>
+                    {{/if}}
+                {{/if}}
+                </div>
+            </div>
+            <div class="mdl-cell mdl-cell--5-col">
+                {{#if editMode}}
+                    <div class="info-container">
+                        <h3>Instruments</h3>
+                        <div class="mdl-textfield mdl-js-textfield">
+                          <input id="instrument-input" class="mdl-textfield__input" type="text">
+                          <label class="mdl-textfield__label" for="sample1">Add Instrument...</label>
+                        </div>
+                        <button id="instrument-btn" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
+                          <i class="material-icons">add</i>
+                        </button>
+                        {{> chipContainer item=profileInfo.instruments isEditing=true type="instrument"}}
+                    </div>
+                    <div class="info-container">
+                        <h3>Genres</h3>
+                        <div class="mdl-textfield mdl-js-textfield">
+                          <input id="genre-input" class="mdl-textfield__input" type="text">
+                          <label class="mdl-textfield__label" for="sample1">Add Genre...</label>
+                        </div>
+                        <button id="genre-btn" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
+                          <i class="material-icons">add</i>
+                        </button>
+                        {{> chipContainer item=profileInfo.genres isEditing=true type="genre"}}
+                    </div>
+                {{else}}
+                    <div class="info-container">
+                        <h3>Instruments</h3>
+                        {{> chipContainer item=profileInfo.instruments isEditing=false}}
+                    </div>
+                    <div class="info-container">
+                        <h3>Genres</h3>
+                        {{> chipContainer item=profileInfo.genres isEditing=false}}
+                    </div>
+                {{/if}}
+
+            </div>
+        </div>
+    </div>
+</template>

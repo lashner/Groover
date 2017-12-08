@@ -1,0 +1,88 @@
+@import '../globals.scss';
+
+$message-module-height: 600px;
+$chat-header-height: 50px;
+$chat-field-height: 25px;
+$message-wrapper-height: $message-module-height - $chat-header-height - $chat-field-height - 8 - 10 - 8 - 10;
+
+.messaging {
+    padding: 10px;
+    height: $message-module-height;
+}
+
+.page-content .messaging .conversations, .mdl-list {
+    padding: 0;
+}
+
+.conversations {
+    overflow: auto;
+    background-color: $color-gray2;
+    -webkit-box-shadow: $shadow-properties;
+    box-shadow: $shadow-properties;
+}
+
+.conversation-card {
+    border-bottom: 1px solid $color-gray1;
+
+    &:hover {
+        background-color: $color-gray1;
+        cursor: pointer;
+    }
+}
+
+.selected {
+    background-color: $color-gray1;
+}
+
+.conversation { 
+    position: relative;
+    background-color: $color-gray2;
+    -webkit-box-shadow: $shadow-properties;
+    box-shadow: $shadow-properties;
+}
+
+.conversation-header {
+    height: $chat-header-height;
+    text-align: center;
+    font-size: 36px;
+
+    h3 {
+        margin: 0;
+    }
+}
+
+.messages-placeholder {
+    text-align: center;
+    font-size: 36px;
+    margin-top: 10px;
+}
+
+.messages-wrapper {
+    overflow: auto;
+    padding: 10px 10px 30px 10px;
+    height: $message-wrapper-height;
+}
+
+.sent {
+    text-align: right;
+    
+    .mdl-chip {
+        background-color: $color-blue1;
+        color: white;
+    }
+}
+
+.received {
+    text-align: left;
+}
+
+.chat-field-container {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding: 0 10px;
+}
+
+.chat-field {
+    width: 100%;
+}

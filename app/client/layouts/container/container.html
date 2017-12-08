@@ -1,0 +1,40 @@
+<!-- Always shows a header, even in smaller screens. -->
+<template name="container">
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <a href="/">
+          <img src="images/logo.png" width="50" height="50" alt="Logo" />
+        </a>
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="mdl-layout-spacer"></div>
+        <!-- Navigation. We hide it in small screens. -->
+        <nav class="mdl-navigation mdl-layout--large-screen-only">
+            {{> navBarLinks}}
+        </nav>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer mdl-layout--small-screen-only">
+      <span class="mdl-layout-title">Menu</span>
+      <nav class="mdl-navigation">
+        {{> navBarLinks}}
+      </nav>
+    </div>
+    <main class="mdl-layout__content">
+      <div class="page-content">
+        <!-- Add Templates here-->
+        {{> Template.dynamic template=main}}
+      </div>
+    </main>
+  </div>
+</template>
+
+<template name="navBarLinks">
+    <a class="mdl-navigation__link" href="/profile">Profile</a>
+    <a class="mdl-navigation__link" href="/">Search</a>
+    <a class="mdl-navigation__link" href="/messages">Messages</a>
+    <a id="logout-button" class="mdl-navigation__link" href="">
+      Logout - {{ currentUser.username }}
+      <img src= {{ getUserPicture }} height="40" width="40" style="border-radius: 50%;">
+    </a>
+</template>

@@ -1,0 +1,18 @@
+<template name="chipContainer">
+	<div>
+		{{#if isEditing}}
+			{{# each item}}
+				<span class="mdl-chip mdl-chip--deletable">
+					<span class="mdl-chip__text">{{this}}</span>
+					<button id="delete-chip-btn" type="button" class="mdl-chip__action"><i class="material-icons">cancel</i></button>
+				</span>
+			{{/each}}
+		{{else}}
+			{{# each item}}
+				<span class="mdl-chip">
+					<span class="mdl-chip__text">{{this}}</span>
+				</span>
+			{{/each}}
+		{{/if}}
+	</div>
+</template>

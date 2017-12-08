@@ -1,0 +1,36 @@
+.account-list {
+    width: 850px;
+    margin: 0 auto;
+
+    li {
+        background-color: #c6c6c6;
+    }
+
+    li:nth-child(odd) {
+        background-color: #ededed;
+    }
+}
+
+.account-card {
+    margin: 10px auto;
+    border-radius: 3px;
+    -webkit-box-shadow: 0px 10px 20px -10px #888;
+    box-shadow: 0px 10px 20px -10px #888;
+    overflow: hidden;
+    width: 800px;
+    transition: width ease-out 300ms, height ease-out 300ms, padding ease-out 300ms;
+
+    &:hover {
+        transition: width ease-out 300ms, height ease-out 300ms, padding ease-out 300ms;
+        width: 830px;
+        height: 100px;
+        padding: 22px 31px;
+    }
+
+    .profile-image {
+        border-radius: 50%;
+        margin-right: 16px;
+        display: inline-block;
+        float: left;
+    }
+}
